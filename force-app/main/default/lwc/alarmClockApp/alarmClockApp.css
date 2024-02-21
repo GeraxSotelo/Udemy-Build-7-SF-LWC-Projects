@@ -38,6 +38,16 @@ button {
     margin-top: 12px;
 }
 
+.stop-clock-button {
+    display: block;
+    background: #d10202;
+    font-size: 12px;
+    padding: 4px;
+    border-color: #ff0000;
+    color: #333;
+    margin: 20px auto 2px;
+}
+
 img {
     margin: 20px auto;
     display: block;

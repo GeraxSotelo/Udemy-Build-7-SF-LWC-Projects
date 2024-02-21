@@ -8,6 +8,7 @@ export default class AlarmClockApp extends LightningElement {
     minutes = [];
     seconds = [];
     meridiems = ['AM', 'PM'];
+    intervalId = '';
 
     connectedCallback() {
         this.createHoursOptions();
@@ -17,7 +18,7 @@ export default class AlarmClockApp extends LightningElement {
     }
 
     currentTimeHandler() {
-        setInterval(() => { // run logic every second
+        this.intervalId = setInterval(() => { // run logic every second
             let dateTime = new Date();
             let hour = dateTime.getHours();
             let min = dateTime.getMinutes();
@@ -36,7 +37,7 @@ export default class AlarmClockApp extends LightningElement {
             sec = sec<10 ? "0"+sec : sec;
     
             this.currentTime = `${hour}:${min}:${sec} ${ampm}`;
-        }, 100000);
+        }, 1000);
     }
 
     createHoursOptions() {
@@ -58,5 +59,9 @@ export default class AlarmClockApp extends LightningElement {
             let val = i<10 ? `0${i}` : i;
             this.seconds.push(val);
         }
+    }
+
+    stopClock() {
+        clearInterval(this.intervalId);
     }
 }
