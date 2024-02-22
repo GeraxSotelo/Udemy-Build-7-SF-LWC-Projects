@@ -1,3 +1,8 @@
-import { LightningElement } from 'lwc';
+import { LightningElement, api } from 'lwc';
 
-export default class ClockDropdown extends LightningElement {}
+export default class ClockDropdown extends LightningElement {
+    //public reactive properties
+    @api label = '';
+    @api options = [];
+    @api uniqueId = '';
+}
