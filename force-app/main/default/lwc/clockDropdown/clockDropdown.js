@@ -13,11 +13,11 @@ export default class ClockDropdown extends LightningElement {
     }
 
     callParent(value) {
-        this.dispatchEvent(new CustomEvent('optionHandler', {  // Custom event name: optionHandler
-        detail: {  // object with a property named 'detail'
-            label: this.label,
-            value: value  // value of 'detail' is an object
-        }
+        this.dispatchEvent(new CustomEvent('optionhandler', {  // Custom event name: optionHandler
+            detail: {  // object with a property named 'detail'
+                label: this.label,
+                value: value  // value of 'detail' is an object
+            }
         }))
     }
 }

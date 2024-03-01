@@ -65,8 +65,8 @@ export default class AlarmClockApp extends LightningElement {
     }
 
     // for c-clock-dropdown child component
-    optionHandlerListener() {
-        const {label, value} = event.details;
+    optionhandlerlistener(event) {
+        const {label, value} = event.detail;
         if(label === "Hour") {
             this.hourSelected = value;
         } else if (label == "Minutes") {
