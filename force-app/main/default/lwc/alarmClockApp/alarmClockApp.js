@@ -99,9 +99,6 @@ export default class AlarmClockApp extends LightningElement {
     clearAlarmHandler() {
         this.alarmTime = '';
         this.isAlarmSet = false;
-        this.hourSelected = '';
-        this.minutesSelected = '';
-        this.meridiemSelected = '';
     }
 
     stopClock() {
