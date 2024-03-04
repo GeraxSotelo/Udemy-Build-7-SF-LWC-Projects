@@ -7,8 +7,6 @@ export default class ClockDropdown extends LightningElement {
     @api uniqueId = '';
 
     changeHandler(event) {
-        console.log('Send: ', this.label);
-        console.log('Send: ', event.target.value);
         this.callParent(event.target.value);
     }
 

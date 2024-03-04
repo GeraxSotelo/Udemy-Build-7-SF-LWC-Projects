@@ -13,11 +13,15 @@ export default class AlarmClockApp extends LightningElement {
     meridiemSelected = '';
     alarmTime = '';
     isAlarmSet = false;
+    isAlarmTriggered = false;
     intervalId = '';
 
     get isFieldNotSelected() {
         // return false if all properties have a value to enable html button
         return !(this.hourSelected && this.minutesSelected && this.meridiemSelected);
+    }
+    get shakeImage() {
+        return this.isAlarmTriggered ? 'shake' : '';
     }
 
     connectedCallback() {
@@ -49,7 +53,7 @@ export default class AlarmClockApp extends LightningElement {
             this.currentTime = `${hour}:${min}:${sec} ${ampm}`;
 
             if(this.alarmTime === `${hour}:${min} ${ampm}`) {
-                console.log('Alarm Trigerred');
+                this.isAlarmTriggered = true;
             }
 
         }, 1000);
@@ -86,9 +90,6 @@ export default class AlarmClockApp extends LightningElement {
         } else if (label == "AM/PM") {
             this.meridiemSelected = value;
         }
-        console.log('Hour Received: ', this.hourSelected);
-        console.log('Minutes Received: ', this.minutesSelected);
-        console.log('Meridiem Received: ', this.meridiemSelected);
     }
 
     setAlarmHandler() {
@@ -99,6 +100,12 @@ export default class AlarmClockApp extends LightningElement {
     clearAlarmHandler() {
         this.alarmTime = '';
         this.isAlarmSet = false;
+        const elements = this.template.querySelectorAll('c-clock-dropdown');
+        this.isAlarmTriggered = false;
+
+        Array.from(elements).forEach(element => {
+            element.reset("");
+        })
     }
 
     stopClock() {
