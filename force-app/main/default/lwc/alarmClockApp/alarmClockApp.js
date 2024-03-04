@@ -11,7 +11,14 @@ export default class AlarmClockApp extends LightningElement {
     hourSelected = '';
     minutesSelected = '';
     meridiemSelected = '';
+    alarmTime = '';
+    isAlarmSet = false;
     intervalId = '';
+
+    get isFieldNotSelected() {
+        // return false if all properties have a value to enable html button
+        return !(this.hourSelected && this.minutesSelected && this.meridiemSelected);
+    }
 
     connectedCallback() {
         this.createHoursOptions();
@@ -40,6 +47,11 @@ export default class AlarmClockApp extends LightningElement {
             sec = sec<10 ? "0"+sec : sec;
     
             this.currentTime = `${hour}:${min}:${sec} ${ampm}`;
+
+            if(this.alarmTime === `${hour}:${min} ${ampm}`) {
+                console.log('Alarm Trigerred');
+            }
+
         }, 1000);
     }
 
@@ -77,6 +89,19 @@ export default class AlarmClockApp extends LightningElement {
         console.log('Hour Received: ', this.hourSelected);
         console.log('Minutes Received: ', this.minutesSelected);
         console.log('Meridiem Received: ', this.meridiemSelected);
+    }
+
+    setAlarmHandler() {
+        this.alarmTime = `${this.hourSelected}:${this.minutesSelected} ${this.meridiemSelected}`;
+        this.isAlarmSet = true;
+    }
+
+    clearAlarmHandler() {
+        this.alarmTime = '';
+        this.isAlarmSet = false;
+        this.hourSelected = '';
+        this.minutesSelected = '';
+        this.meridiemSelected = '';
     }
 
     stopClock() {

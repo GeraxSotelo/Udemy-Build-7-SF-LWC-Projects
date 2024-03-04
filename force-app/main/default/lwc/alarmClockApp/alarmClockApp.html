@@ -15,8 +15,19 @@
                 <c-clock-dropdown label="AM/PM" options={meridiems} unique-id="select-meridiem" onoptionhandler={optionhandlerlistener}></c-clock-dropdown>
             </div>
             </div>
-
-            <button class="slds-button slds-button_neutral slds-button_stretch">Set Alarm</button>
+            <template if:false={isAlarmSet}>
+                <button class="slds-button slds-button_neutral slds-button_stretch"
+                    disabled={isFieldNotSelected}
+                    onclick={setAlarmHandler}>
+                    Set Alarm
+                </button>
+            </template>
+            <template if:true={isAlarmSet}>
+                <button class="slds-button slds-button_neutral slds-button_stretch"
+                    onclick={clearAlarmHandler}>
+                    Clear Alarm
+                </button>
+            </template>
 
             <button class="slds-button slds-button_neutral stop-clock-button" onclick={stopClock}>Stop Clock</button>
         </div>
