@@ -1,9 +1,9 @@
 <template>
     <div class="currency-app">
         <div class="container">
-            <div class="slds-card">
+            <div class="slds-card custom-card">
                 <form action="">
-                    <h1>Currency Converter</h1>
+                    <h1 class="slds-text-heading_large slds-text-color_inverse slds-text-align_center slds-m-bottom_large">Currency Converter</h1>
                     <lightning-input type="number" name="input" label="Amount" class="slds-m-vertical_x-large"
                     placeholder="Amount" variant="label-hidden" required></lightning-input>
                     <div class="slds-grid slds-gutters">
@@ -17,7 +17,7 @@
                         <span>3</span>
                         </div>
                     </div>
-                    <button type="submit" class="slds-button slds-button_stretch">Convert</button>
+                    <button type="submit" class="slds-button slds-button_stretch custom-button">Convert</button>
                 </form>
             </div>
         </div>

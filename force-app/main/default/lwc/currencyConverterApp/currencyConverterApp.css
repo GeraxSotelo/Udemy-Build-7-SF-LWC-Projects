@@ -1,0 +1,28 @@
+:host() {
+    --dark-blue: #0b2451;
+    --yellow: #f9ba49;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 16px;
+}
+
+.custom-card {
+    max-width: 520px;
+    background: var(--dark-blue);
+    border-radius: 25px;
+    min-width: 370px;
+    padding: 16px;
+}
+
+.custom-button, .custom-button:hover, .custom-button:active {
+    background: var(--yellow);
+    color: var(--dark-blue);
+    padding: 12px;
+    font-size: 24px;
+    margin-top: 12px;
+}
