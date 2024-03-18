@@ -1,3 +1,25 @@
 <template>
-    <h1>Currency Converter</h1>
+    <div class="currency-app">
+        <div class="container">
+            <div class="slds-card">
+                <form action="">
+                    <h1>Currency Converter</h1>
+                    <lightning-input type="number" name="input" label="Amount" class="slds-m-vertical_x-large"
+                    placeholder="Amount" variant="label-hidden" required></lightning-input>
+                    <div class="slds-grid slds-gutters">
+                        <div class="slds-col">
+                        <span>1</span>
+                        </div>
+                        <div class="slds-col">
+                            <lightning-icon icon-name='utility:change_record_type' alternative-text='convert_icon' size='small' title='convert_icon'></lightning-icon>
+                        </div>
+                        <div class="slds-col">
+                        <span>3</span>
+                        </div>
+                    </div>
+                    <button type="submit" class="slds-button slds-button_stretch">Convert</button>
+                </form>
+            </div>
+        </div>
+    </div>
 </template>
