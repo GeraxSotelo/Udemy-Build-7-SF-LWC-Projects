@@ -3,6 +3,13 @@
     --yellow: #f9ba49;
 }
 
+.currency-app {
+    background: url('/sfsites/c/resource/currencyConverterAssets/currencyConverterAssets/currencyAppBackground.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+
 .container {
     display: flex;
     justify-content: center;
@@ -29,4 +36,9 @@
 
 .baseline {
     align-items: baseline;
+}
+
+img {
+    display: block;
+    margin: auto;
 }
