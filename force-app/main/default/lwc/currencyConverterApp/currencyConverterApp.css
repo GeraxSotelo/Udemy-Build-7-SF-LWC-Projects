@@ -3,6 +3,13 @@
     --yellow: #f9ba49;
 }
 
+.custom-icon {
+    --slds-c-icon-color-foreground-default: var(--yellow);
+    --slds-c-icon-color-background: var(--yellow);
+    --slds-c-icon-color-foreground: var(--dark-blue);
+    transform: rotate(45deg)
+}
+
 .currency-app {
     background: url('/sfsites/c/resource/currencyConverterAssets/currencyConverterAssets/currencyAppBackground.png');
     background-size: cover;
