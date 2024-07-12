@@ -1,6 +1,8 @@
 :host() {
     --dark-blue: #0b2451;
+    --light-blue: #1b96ff;
     --yellow: #f9ba49;
+    --orange: #fb8500;
 }
 
 .custom-icon {
@@ -48,4 +50,15 @@
 img {
     display: block;
     margin: auto;
+}
+
+.result {
+    font-size: 24px;
+    margin-bottom: 24px;
+    font-weight: bold;
+    color: var(--light-blue);
+}
+
+.result-to {
+    color: var(--orange);
 }

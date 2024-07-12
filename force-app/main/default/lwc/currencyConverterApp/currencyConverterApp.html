@@ -2,12 +2,15 @@
     <div class="currency-app">
         <div class="container">
             <div class="slds-card custom-card">
-                <form action="">
+                <form onsubmit={submitHandler}>
                     <h1 class="slds-text-heading_large slds-text-color_inverse slds-text-align_center slds-m-bottom_large">Currency Converter</h1>
+                    
                     <img src={currencyImage} alt="Currency Icon" height="150" width="150">
-                    <lightning-input type="number" name="input" label="Amount" class="slds-m-vertical_x-large"
-                    placeholder="Amount" variant="label-hidden" required>
+                    
+                    <lightning-input type="number" name="amount" label="Amount" class="slds-m-vertical_x-large"
+                    placeholder="Amount" variant="label-hidden" required onchange={handleChange}>
                     </lightning-input>
+
                     <div class="slds-grid slds-gutters baseline slds-m-vertical_x-large">
                         <div class="slds-col">
                             <lightning-combobox
@@ -34,6 +37,18 @@
                                 onchange={handleChange} >
                             </lightning-combobox>
                         </div>
+                    </div>
+                    <div class="slds-text-align_center">
+                        <template lwc:if={result}>
+                            <div class="result">
+                                {amount} {countryFrom} = <span class="result-to">{result} {countryTo}</span>
+                            </div>
+                        </template>
+                        <template lwc:if={error}>
+                            <div class="result">
+                                <div class="result">{error}</div>
+                            </div>
+                        </template>
                     </div>
                     <button type="submit" class="slds-button slds-button_stretch custom-button">Convert</button>
                 </form>
