@@ -1,0 +1,57 @@
+:host() {
+    --navy-blue: #091f43;
+    --soft-red: #ed2144;
+}
+.app {
+    background: var(--navy-blue);
+    height: 100vh;
+}
+
+.app-card {
+    background: white;
+    max-width: 400px;
+    min-width: 375px;
+    border-radius: 8px;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header {
+    font-size: 28px;
+    font-weight: 500;
+    color: var(--navy-blue);
+    padding: 16px;
+    border-bottom: 1px solid #ccc;
+}
+
+input {
+    text-align: center;
+    padding: 16px;
+    height: 55px;
+    outline: none;
+    font-size: 24px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+input::placeholder {
+    color: #bfbfbf;
+}
+
+.width100 {
+    width: 100%;
+}
+
+button {
+    background: var(--soft-red);
+    height: 55px;
+    border: none;
+    outline: none;
+    font-size: 24px;
+    border-radius: 8px;
+    color: white;
+}
