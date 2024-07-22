@@ -1,8 +1,10 @@
-import { LightningElement } from 'lwc';
+import { LightningElement, wire } from 'lwc';
 import { countryCodeList } from 'c/countryCodeList';
 import currencyConverterAssets from '@salesforce/resourceUrl/currencyConverterAssets';
+import getGeneralApiKey from '@salesforce/apex/ExchangeRateAPIController.getExchangeRateGeneralApiKey';
 
 export default class CurrencyConverterApp extends LightningElement {
+    API_KEY;
     currencyImage = currencyConverterAssets + '/currencyConverterAssets/currency.svg';
     countryList = countryCodeList;
     countryFrom = "USD";
@@ -10,6 +12,18 @@ export default class CurrencyConverterApp extends LightningElement {
     amount = '';
     result;
     error;
+
+    @wire(getGeneralApiKey)
+    wiredApiKey(value) {
+        const {data, error} = value;
+        if(data) {
+            this.API_KEY = data;
+            this.error = undefined;
+        } else if (error) {
+            this.error = error;
+            this.records = undefined;
+        }
+    }
 
     handleChange(event) {
         const {name, value} = event.target;
@@ -24,8 +38,7 @@ export default class CurrencyConverterApp extends LightningElement {
     }
 
     async convert() {
-        const API_KEY = '0f0197a69685751944d10da8';
-        const API_URL = `https://v6.exchangerate-api.com/v6/${API_KEY}/pair/${this.countryFrom}/${this.countryTo}/${this.amount}`;
+        const API_URL = `https://v6.exchangerate-api.com/v6/${this.API_KEY}/pair/${this.countryFrom}/${this.countryTo}/${this.amount}`;
         try {
             const data = await fetch(API_URL);
             const jsonData = await data.json();
