@@ -21,7 +21,7 @@ export default class CurrencyConverterApp extends LightningElement {
             this.error = undefined;
         } else if (error) {
             this.error = error;
-            this.records = undefined;
+            this.API_KEY = undefined;
         }
     }
 
